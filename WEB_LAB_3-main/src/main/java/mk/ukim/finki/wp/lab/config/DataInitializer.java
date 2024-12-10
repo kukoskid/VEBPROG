@@ -39,11 +39,11 @@ public class DataInitializer {
         albumRepository.saveAll(albums);
 
         List<Song> songs=new ArrayList<>();
-        Song s1=new Song("SF","Strawberry fields","rock",1967);
-        Song s2=new Song("OTTR","Off to the races","alternative",2012);
-        Song s3=new Song("HCTS","Here comes the sun","rock",1969);
-        Song s4=new Song("HJ","Hey jude","rock",1968);
-        Song s5=new Song("LH","Like Him","rap",2024);
+        Song s1=new Song("SF","Yes","rock",1967);
+        Song s2=new Song("OTTR","Snow","alternative",2012);
+        Song s3=new Song("HCTS","Christmas","rock",1969);
+        Song s4=new Song("HJ","a","rock",1968);
+        Song s5=new Song("LH","Like","rap",2024);
         songs.add(s1);
         songs.add(s2);
         songs.add(s3);
@@ -57,11 +57,11 @@ public class DataInitializer {
         songRepository.saveAll(songs);
 
         List<Artist> artists=new ArrayList<>();
-        Artist a1=new Artist("John","Lennon","bio");
-        Artist a2=new Artist("Ringo","Star","bio");
-        Artist a3=new Artist("George","Harrison","bio");
-        Artist a4=new Artist("Paul","McCartney","bio");
-        Artist a5=new Artist("Freddie","Mercury","bio");
+        Artist a1=new Artist("Damjan","Kukoski","bio");
+        Artist a2=new Artist("Mila","Gjorgoska","bio");
+        Artist a3=new Artist("Teodor","Duracoski","bio");
+        Artist a4=new Artist("Angel","Mirceski","bio");
+        Artist a5=new Artist("Ilija","Bunceski","bio");
         artists.add(a1);
         artists.add(a2);
         artists.add(a3);
