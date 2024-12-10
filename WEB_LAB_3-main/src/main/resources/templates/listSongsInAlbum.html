@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Songs Homepage - Welcome to My Music Store</title>
+    <style type="text/css">
+        body {
+            width: 800px;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1 th:text="'Album:'+ ${album.name}"> </h1>
+</header>
+<main>
+        <div th:each="song : ${songList}">
+            <p th:for="${song.getTrackId()}" th:text="'Title: ' + ${song.getTitle()} + ', Genre: ' + ${song.getGenre()} + ', Release Year: ' + ${song.getReleaseYear()}"></p>
+        </div>
+        <br>
+</main>
+</body>
+</html>
