@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${wantedSong != null ? wantedSong.title + ' - Details' : 'Song Not Found'}">Song Details</title>
+    <style>
+        .song-details {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .error-message {
+            color: red;
+            padding: 20px;
+            text-align: center;
+        }
+        .performers-list {
+            list-style: none;
+            padding: 0;
+        }
+        .performers-list li {
+            padding: 5px 0;
+        }
+        .song-info {
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+<div class="song-details">
+    <!-- Error handling -->
+    <div th:if="${wantedSong == null}" class="error-message">
+        <h2>Song not found</h2>
+        <p>The requested song could not be found.</p>
+        <a href="/songs">Return to Songs List</a>
+    </div>
+
+    <!-- Song details content -->
+    <div th:if="${wantedSong != null}">
+        <header>
+            <h1 th:text="${wantedSong.title}">Song Title</h1>
+        </header>
+
+        <section class="song-info">
+            <h2>Song Information</h2>
+            <p>Genre: <span th:text="${wantedSong.genre}">Genre</span></p>
+            <p>Release Year: <span th:text="${wantedSong.releaseYear}">Year</span></p>
+
+            <h3>Performers:</h3>
+            <ul class="performers-list" th:if="${not #lists.isEmpty(wantedSong.performers)}">
+                <li th:each="performer : ${wantedSong.performers}">
+                    <span th:text="${performer.firstName + ' ' + performer.lastName}">Performer Name</span>
+                </li>
+            </ul>
+            <p th:if="${#lists.isEmpty(wantedSong.performers)}">No performers assigned to this song.</p>
+        </section>
+
+        <footer>
+            <a href="/songs" class="back-link">Back to Songs List</a>
+        </footer>
+    </div>
+</div>
+</body>
+</html>
